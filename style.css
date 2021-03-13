@@ -217,9 +217,13 @@ body {
 		height: auto;
 	}
 	.circular {
+		position: relative;
 		height: 150px;
 		width: 150px;
 		margin: auto;
+		top: 20px;
+		left: 0%;
+		transform: translate(0%, 0%);
 	}
 	.circular .inner {
 		height: 135px;
@@ -240,5 +244,8 @@ body {
 	}
 	body {
 		background-color: #ffffff;
+	}
+	#bottom_text {
+		top: 20%;
 	}
 }
