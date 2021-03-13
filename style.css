@@ -1,0 +1,195 @@
+.caption{
+	padding: 8% 0 5px 0;
+	font-size: 26px;
+	color: 636161;
+	font-family: "Verdana", sans-serif
+}
+
+p{
+	font-size: 15px;
+	color: 7c7c7c;
+	font-family: "Verdana", sans-serif
+}
+
+.container{
+	height: 90%;
+	width: 70%;
+	margin: auto;
+	box-shadow: 0px 0px 20px 1px rgba(158,158,158,1);
+	background-color: #ffffff;
+}
+
+.input_container{
+	text-align: center
+}
+
+.center{
+	text-align: center
+}
+
+input{
+	font-size: 19px;
+	text-align: center;
+	border-width: 0px;
+	border: none;
+	padding: 10px;
+	margin: 10px 0 20px 0;
+}
+
+.username:focus{
+	outline: none;
+	box-shadow: 0px 0px 20px 1px #c4c4c4
+}
+
+body{
+  background-color: #dbdad9;
+}
+
+/* progress circle from https://www.codingnepalweb.com/2020/07/circular-progress-bar-using-html-css.html */
+
+.circular{
+  height: 200px;
+  width: 200px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.circular .inner, .circular .outer, .circular .circle{
+  position: absolute;
+  z-index: 6;
+  height: 100%;
+  width: 100%;
+  border-radius: 100%;
+  box-shadow: inset 0 0 3px 2px rgba(0,0,0,0.5);
+}
+.circular .inner{
+	z-index:8;
+  top: 50%;
+  left: 50%;
+  height: 180px;
+  width: 180px;
+  margin: -90px 0 0 -90px;
+  background-color: #ffffff;
+  border-radius: 100%;
+  box-shadow: 0 0 3px 2px rgba(0,0,0,0.5);
+}
+
+.circular .inner:hover, #FIDE_rating_container:hover {
+	cursor: pointer;
+	background-color: #f0f0f0;
+}
+
+.circular .circle{
+  z-index: 1;
+  box-shadow: none;
+}
+.circular #FIDE_rating_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 18px;
+	color: 7c7c7c;
+	font-family: "Verdana", sans-serif
+}
+.circular .bar{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #dbdad9;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 200px, 200px, 100px);
+}
+.circle .bar .progress{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 200px, 0px);
+}
+.circle .bar .progress, .dot span, .stationary_dot span{
+  background: #2cdb00;
+}
+
+.circle .left .progress{
+  z-index: 1;
+  animation: left 0.5s linear both;
+}
+@keyframes left {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.circle .right{
+  z-index: 3;
+  transform: rotate(180deg);
+}
+.circle .right .progress{
+  animation: right 0.5s linear both;
+  /*animation-delay: 0.25s;*/
+}
+@keyframes right {
+  100%{
+	  transform: rotate(-360deg);
+	}
+}
+.circle .dot, .circle .stationary_dot {
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 20px;
+  margin-top: -10px;
+  transform-origin: 0% 50%;
+}
+
+.circle .stationary_dot{
+	z-index: 7;
+	transform: rotate(-90deg);
+}
+
+.circle .dot {
+  animation: dot 0.5s linear both;
+}
+
+.circle .dot span, .circle .stationary_dot span {
+  position: absolute;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
+@keyframes dot{
+  0% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    z-index: 4;
+  }
+  100% {
+	  transform: rotate(180deg);
+  }
+}
+
+@media screen and (max-width: 800px) {
+	.circular{
+	  height: 100px;
+	  width: 100px;
+	  margin: 50px auto;
+	}
+	.circular .inner{
+	  height: 90px;
+	  width: 90px;
+	  margin: -45px 0 0 -45px;
+	}
+.circular .bar{
+  clip: rect(0px, 100px, 100px, 50px);
+}
+.circle .bar .progress{
+  clip: rect(0px, 50px, 100px, 0px);
+}
+}
