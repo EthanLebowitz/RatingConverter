@@ -59,11 +59,44 @@ function fillRating(rating){
 	ratingContainer.innerHTML = rating;
 }
 
-async function calculate(){
-	var username = document.getElementById("username").value;
-	var userJSONpromise = getLichessData(username);
+function fillErrorMessage(msg){
+	var bottomText = document.getElementById("bottom_text");
+	bottomText.innerHTML = "";
 	
-	var userJSON = await userJSONpromise.then(data => {return data.json()}).catch(error=>console.log(error));
-	var FIDErating = convert(userJSON);
-	fillRating(FIDErating);
+	var errorDiv = document.createElement('div');
+	var errorText = document.createTextNode(msg);
+	errorDiv.appendChild(errorText);
+	errorDiv.classList.add("error");
+	
+	bottomText.appendChild(errorDiv);
+}
+
+async function calculate(){
+	try{
+		var username = document.getElementById("username").value;
+		if(username == ""){
+			throw("empty input");
+		}
+		var userJSONpromise = getLichessData(username);
+		
+		var userJSON = await userJSONpromise.then(data => {return data.json()}).catch(error=>console.log(error));
+		if(userJSON.closed){
+			throw("account deleted");
+		}
+		var FIDErating = convert(userJSON);
+		fillRating(FIDErating);
+		return true;
+	}
+	catch(e){
+		console.log(e);
+		if(e == "empty input"){
+			fillErrorMessage("Enter a username");
+		}
+		else if(e == "TypeError: userJSON is undefined"){
+			fillErrorMessage("Couldn't find that user, are you sure you spelled it right?");
+		}
+		else if(e == "account deleted"){
+			fillErrorMessage("Looks like that account was deleted")
+		}
+	}
 }

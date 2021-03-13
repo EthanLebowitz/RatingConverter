@@ -10,40 +10,32 @@
 		<div class="input_container">
 			<input type="text" id="username" class="username" autofocus="true" placeholder="username" onchange="resetButton()"><br>
 		</div>
+		<div id="bottom_text"></div>
+	</div>
 		
-		<!-- circular progress bar from https://www.codingnepalweb.com/2020/07/circular-progress-bar-using-html-css.html-->
-		<div class="circular">
-			<div class="inner" onclick="main()">
-				<div id="FIDE_rating_container">
-					calculate
-				</div>
-			</div>
-			<div class="outer">
-			</div>
-			<div id="circle" class="circle">
-				<div id="dot">
-				  <span></span>
-				</div>
-				<div id="stationary_dot">
-				  <span></span>
-				</div>
-				<div id="bar_left" class="bar left">
-					<div id="progress1" class="">
-					</div>
-				</div>
-				<div id="bar_right" class="bar right">
-					<div id="progress2" class="">
-					</div>
-				</div>
+	<!-- circular progress bar from https://www.codingnepalweb.com/2020/07/circular-progress-bar-using-html-css.html (with modifications)-->
+	
+	<div class="circular">
+		<div class="inner" onclick="main()">
+			<div id="FIDE_rating_container">
+				calculate
 			</div>
 		</div>
-		
-		
+		<div class="outer"></div>
+		<div id="circle" class="circle">
+			<div class="bar left">
+				<div id="progress1" class=""></div>
+			</div>
+			<div class="bar right">
+				<div id="progress2" class=""></div>
+			</div>
+		</div>
 	</div>
+		
 	
 	
 	<script type="text/javascript" src="converter.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"> </script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script> 
 	<script>
 		
 		var input = document.getElementById("username");
@@ -75,9 +67,23 @@
 			document.getElementById("progress2").classList.remove("progress");
 		}
 		
-		function main(){
-			calculate();
+		var explanationLink = document.createElement('a');
+		var link = document.createTextNode("Where did this number come from?");
+		explanationLink.appendChild(link);
+		explanationLink.href = "about.html";
+		
+		function populateExplanationLink(){
+			var linkContainer = document.getElementById("bottom_text");
+			linkContainer.innerHTML = "";
+			linkContainer.appendChild(explanationLink);
+		}
+		
+		async function main(){
 			animateProgress();
+			succeeded = await calculate();
+			if(succeeded){
+				populateExplanationLink();
+			}
 		}
 		
 	</script>

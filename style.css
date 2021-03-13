@@ -1,33 +1,103 @@
-.caption{
+.caption {
 	padding: 8% 0 5px 0;
 	font-size: 26px;
-	color: 636161;
-	font-family: "Verdana", sans-serif
+	color: #636161;
+	font-family: "Verdana", sans-serif;
 }
 
-p{
+#back_button {
+	background-color:#d9d5cc;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:18px 30px;
+	text-decoration:none;
+	position: absolute;
+	/*margin: 40px 0 0 40px;*/
+}
+#back_button:hover {
+	background-color:#aba79d;
+}
+
+.arrow_left {
+  border: solid white;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px; 
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+
+.error {
+	color: #a31515;
+}
+
+.center_img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+}
+.table_img {
+	width: 100%;
+}
+
+p, .content {
 	font-size: 15px;
-	color: 7c7c7c;
-	font-family: "Verdana", sans-serif
+	color: #7c7c7c;
+	font-family: "Verdana", sans-serif;
 }
 
-.container {
+.content {
+	padding: 0 40px;
+	color: #212121;
+}
+
+#coffee_btn {
+	color: #0a677a;
+	cursor: pointer;
+}
+
+#bottom_text {
+	font-family: "Verdana", sans-serif;
+	font-size: 17px;
+	width: 100%;
+	text-align: center;
+	position: relative;
+	top: 55%;
+}
+
+#donate_links {
+	display: none;
+}
+
+a {
+	color: #0a677a;
+	text-decoration: none;
+}
+
+.container, .about_container {
 	height: 90%;
 	width: 70%;
 	margin: auto;
-	box-shadow: 0px 0px 20px 1px rgba(158,158,158,1);
+	box-shadow: 0px 0px 20px 1px rgba(0,0,0,0.3);
 	background-color: #ffffff;
+	padding: 0 0 30px 0;
 }
 
-.input_container{
-	text-align: center
+.about_container {
+	height: auto;
 }
 
-.center{
-	text-align: center
+.input_container, .center {
+	text-align: center;
 }
 
-input{
+input {
 	font-size: 19px;
 	text-align: center;
 	border-width: 0px;
@@ -36,42 +106,44 @@ input{
 	margin: 10px 0 20px 0;
 }
 
-.username:focus{
+.username:focus {
 	outline: none;
-	box-shadow: 0px 0px 20px 1px #c4c4c4
+	box-shadow: 0px 0px 20px 1px #c4c4c4;
 }
 
-body{
-  background-color: #dbdad9;
+body {
+	background-color: #dbdad9;
 }
 
 /* progress circle from https://www.codingnepalweb.com/2020/07/circular-progress-bar-using-html-css.html */
 
-.circular{
-  height: 200px;
-  width: 200px;
-  position: relative;
-  margin: 100px auto;
+.circular {
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	top: 48%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
-.circular .inner, .circular .outer, .circular .circle{
-  position: absolute;
-  z-index: 6;
-  height: 100%;
-  width: 100%;
-  border-radius: 100%;
-  box-shadow: inset 0 0 3px 2px rgba(0,0,0,0.5);
+.circular .inner, .circular .outer, .circular .circle {
+	position: absolute;
+	z-index: 6;
+	height: 100%;
+	width: 100%;
+	border-radius: 100%;
+	box-shadow: inset 0 0 3px 2px rgba(0,0,0,0.3);
 }
-.circular .inner{
+.circular .inner {
 	z-index:8;
-  top: 50%;
-  left: 50%;
-  height: 180px;
-  width: 180px;
-  margin: -90px 0 0 -90px;
-  background-color: #ffffff;
-  border-radius: 100%;
-  box-shadow: 0 0 3px 2px rgba(0,0,0,0.5);
+	top: 50%;
+	left: 50%;
+	height: 180px;
+	width: 180px;
+	margin: -90px 0 0 -90px;
+	background-color: #ffffff;
+	border-radius: 100%;
+	box-shadow: 0 0 3px 2px rgba(0,0,0,0.4);
 }
 
 .circular .inner:hover, #FIDE_rating_container:hover {
@@ -79,132 +151,94 @@ body{
 	background-color: #f0f0f0;
 }
 
-.circular .circle{
-  z-index: 1;
-  box-shadow: none;
+.circular .circle {
+	z-index: 1;
+	box-shadow: none;
 }
-.circular #FIDE_rating_container{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  font-size: 18px;
+.circular #FIDE_rating_container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	font-size: 18px;
 	color: 7c7c7c;
 	font-family: "Verdana", sans-serif
 }
-.circular .bar{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #dbdad9;
-  -webkit-border-radius: 100%;
-  clip: rect(0px, 200px, 200px, 100px);
+.circular .bar {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: #dbdad9;
+	-webkit-border-radius: 100%;
+	clip: rect(0px, 200px, 200px, 100px);
 }
-.circle .bar .progress{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  -webkit-border-radius: 100%;
-  clip: rect(0px, 100px, 200px, 0px);
+.circle .bar .progress {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	-webkit-border-radius: 100%;
+	clip: rect(0px, 100px, 200px, 0px);
 }
-.circle .bar .progress, .dot span, .stationary_dot span{
-  background: #2cdb00;
+.circle .bar .progress {
+	background: #2cdb00;
 }
 
-.circle .left .progress{
-  z-index: 1;
-  animation: left 0.5s linear both;
+.circle .left .progress {
+	z-index: 1;
+	animation: left 0.5s linear both;
 }
 @keyframes left {
-  100%{
-    transform: rotate(360deg);
-  }
+	100%{
+		transform: rotate(360deg);
+	}
 }
-.circle .right{
-  z-index: 3;
-  transform: rotate(180deg);
+.circle .right {
+	z-index: 3;
+	transform: rotate(180deg);
 }
-.circle .right .progress{
-  animation: right 0.5s linear both;
-  /*animation-delay: 0.25s;*/
+.circle .right .progress {
+	animation: right 0.5s linear both;
 }
 @keyframes right {
-  100%{
-	  transform: rotate(-360deg);
+	100%{
+		transform: rotate(-360deg);
 	}
 }
-.circle .dot, .circle .stationary_dot {
-  z-index: 2;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 50%;
-  height: 20px;
-  margin-top: -10px;
-  transform-origin: 0% 50%;
-}
 
-.circle .stationary_dot{
-	z-index: 7;
-	transform: rotate(-90deg);
-}
-
-.circle .dot {
-  animation: dot 0.5s linear both;
-}
-
-.circle .dot span, .circle .stationary_dot span {
-  position: absolute;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 100%;
-}
-
-@keyframes dot{
-  0% {
-    transform: rotate(-90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-    z-index: 4;
-  }
-  100% {
-	  transform: rotate(180deg);
-  }
-}
-
-@media screen and (max-width: 600px) {
-	.container {
-		height: 100%;
+@media screen and (max-width: 650px) {
+	.container, .about_container {
+		height: 95%;
 		width: 100%;
-		margin: 0 0;
+		margin: none;
 		box-shadow: none;
 	}
-	.circular{
-	  height: 150px;
-	  width: 150px;
-	  margin: 75px auto;
+	.about_container{
+		height: auto;
 	}
-	.circular .inner{
-	  height: 135px;
-	  width: 135px;
-	  margin: -67.5px 0 0 -67.5px;
+	.circular {
+		height: 150px;
+		width: 150px;
+		margin: auto;
 	}
-.circular .bar{
-  clip: rect(0px, 150px, 150px, 75px);
-}
-.circle .bar .progress{
-  clip: rect(0px, 75px, 150px, 0px);
-}
-.caption{
-	padding: 8% 0 5px 0; /*change or delete*/
-	font-size: 18px;
-	color: 636161;
-	font-family: "Verdana", sans-serif
-}
-body{
-  background-color: #ffffff;
-}
+	.circular .inner {
+		height: 135px;
+		width: 135px;
+		margin: -67.5px 0 0 -67.5px;
+	}
+	.circular .bar{
+		clip: rect(0px, 150px, 150px, 75px);
+	}
+	.circle .bar .progress {
+		clip: rect(0px, 75px, 150px, 0px);
+	}
+	.caption {
+		padding: 8% 0 5px 0; /*change or delete*/
+		font-size: 18px;
+		color: #636161;
+		font-family: "Verdana", sans-serif;
+	}
+	body {
+		background-color: #ffffff;
+	}
 }
