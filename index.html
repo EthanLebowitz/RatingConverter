@@ -15,8 +15,10 @@
 	
 		<div class="circular">
 			<div class="inner" onclick="main()">
-				<div id="FIDE_rating_container">
+				<div id="calculate_container">
 					calculate
+				</div>
+				<div id="FIDE_rating_container">
 				</div>
 			</div>
 			<div class="outer"></div>
@@ -51,7 +53,9 @@
 		
 		function resetButton(){	
 			const ratingContainer = document.getElementById("FIDE_rating_container");
-			ratingContainer.innerHTML = "calculate";
+			ratingContainer.innerHTML = "";
+			const calculateContainer = document.getElementById("calculate_container");
+			Container.innerHTML = "calculate";
 		}
 		
 		 function sleep(ms) { //https://medium.com/@noamsauerutley/getting-sleep-with-promises-in-js-9a5400b48cda#0c48
@@ -67,13 +71,14 @@
 			document.getElementById("progress2").classList.remove("progress");
 		}
 		
-		var explanationLink = document.createElement('a');
-		var link = document.createTextNode("Where did this number come from?");
-		explanationLink.appendChild(link);
-		explanationLink.href = "about.html";
+		populateExplanationLink("About the data");
 		
-		function populateExplanationLink(){
+		function populateExplanationLink(text){
 			var linkContainer = document.getElementById("bottom_text");
+			var explanationLink = document.createElement('a');
+			var link = document.createTextNode(text);
+			explanationLink.appendChild(link);
+			explanationLink.href = "about.html";
 			linkContainer.innerHTML = "";
 			linkContainer.appendChild(explanationLink);
 		}
@@ -82,7 +87,7 @@
 			animateProgress();
 			succeeded = await calculate();
 			if(succeeded){
-				populateExplanationLink();
+				populateExplanationLink("Where did this number come from?");
 			}
 		}
 		

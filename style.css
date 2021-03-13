@@ -120,10 +120,9 @@ body {
 .circular {
 	height: 200px;
 	width: 200px;
-	position: absolute;
-	top: 48%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	position: relative;
+	top: 5%;
+	margin: auto;
 }
 
 .circular .inner, .circular .outer, .circular .circle {
@@ -155,16 +154,22 @@ body {
 	z-index: 1;
 	box-shadow: none;
 }
-.circular #FIDE_rating_container {
+
+.circular #FIDE_rating_container, .circular #calculate_container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 10;
-	font-size: 18px;
+	font-size: 25px;
 	color: 7c7c7c;
 	font-family: "Verdana", sans-serif
 }
+
+.circular #calculate_container {
+	font-size: 18px;
+}
+
 .circular .bar {
 	position: absolute;
 	height: 100%;

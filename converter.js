@@ -57,6 +57,8 @@ function fillRating(rating){
 	console.log(rating);
 	const ratingContainer = document.getElementById("FIDE_rating_container");
 	ratingContainer.innerHTML = rating;
+	const calculateContainer = document.getElementById("calculate_container");
+	calculateContainer.innerHTML = "";
 }
 
 function fillErrorMessage(msg){
