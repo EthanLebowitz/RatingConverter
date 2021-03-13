@@ -11,7 +11,7 @@ p{
 	font-family: "Verdana", sans-serif
 }
 
-.container{
+.container {
 	height: 90%;
 	width: 70%;
 	margin: auto;
@@ -175,21 +175,36 @@ body{
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
+	.container {
+		height: 100%;
+		width: 100%;
+		margin: 0 0;
+		box-shadow: none;
+	}
 	.circular{
-	  height: 100px;
-	  width: 100px;
-	  margin: 50px auto;
+	  height: 150px;
+	  width: 150px;
+	  margin: 75px auto;
 	}
 	.circular .inner{
-	  height: 90px;
-	  width: 90px;
-	  margin: -45px 0 0 -45px;
+	  height: 135px;
+	  width: 135px;
+	  margin: -67.5px 0 0 -67.5px;
 	}
 .circular .bar{
-  clip: rect(0px, 100px, 100px, 50px);
+  clip: rect(0px, 150px, 150px, 75px);
 }
 .circle .bar .progress{
-  clip: rect(0px, 50px, 100px, 0px);
+  clip: rect(0px, 75px, 150px, 0px);
+}
+.caption{
+	padding: 8% 0 5px 0; /*change or delete*/
+	font-size: 18px;
+	color: 636161;
+	font-family: "Verdana", sans-serif
+}
+body{
+  background-color: #ffffff;
 }
 }
