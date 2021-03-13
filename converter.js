@@ -79,7 +79,9 @@ async function calculate(){
 		}
 		var userJSONpromise = getLichessData(username);
 		
-		var userJSON = await userJSONpromise.then(data => {return data.json()}).catch(error=>console.log(error));
+		var userJSON = await userJSONpromise.then(data => {
+			return data.json()
+		});//.catch(error=>throw(error));
 		if(userJSON.closed){
 			throw("account deleted");
 		}
@@ -92,11 +94,15 @@ async function calculate(){
 		if(e == "empty input"){
 			fillErrorMessage("Enter a username");
 		}
-		else if(e == "TypeError: userJSON is undefined"){
+		else if(e == "TypeError: userJSON is undefined" || e == "SyntaxError: Unexpected end of JSON input"){
 			fillErrorMessage("Couldn't find that user, are you sure you spelled it right?");
 		}
 		else if(e == "account deleted"){
 			fillErrorMessage("Looks like that account was deleted")
+		}
+		else{
+			console.log(e);
+			fillErrorMessage("Something went wrong :(");
 		}
 	}
 }
