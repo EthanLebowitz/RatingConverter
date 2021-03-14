@@ -31,6 +31,9 @@ function getModelID(categories){
 		}
 	}
 	console.log(id);
+	if(id == ""){
+		throw("not enough games");
+	}
 	return id
 }
 
@@ -103,6 +106,9 @@ async function calculate(){
 		}
 		else if(e == "account deleted"){
 			fillErrorMessage("Looks like that account was deleted")
+		}
+		else if(e == "not enough games"){
+			fillErrorMessage("You haven't played enough games yet. You need at least 20 games in a time control category to get a result. Go play some chess!")
 		}
 		else{
 			console.log(e);
