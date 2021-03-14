@@ -6,7 +6,12 @@ ratingCategories = ["bullet","blitz","rapid","classical"]
 
 function getLichessData(username){
 	var apiURL = "https://lichess.org/api/user/"+username;
-	return fetch(apiURL);
+	try{
+		var data = fetch(apiURL);
+	}catch(e){
+		throw(e);
+	}
+	return data;
 }
 
 function getReliableRatingsList(userJSON){
@@ -101,7 +106,7 @@ async function calculate(){
 		if(e == "empty input"){
 			fillErrorMessage("Enter a username");
 		}
-		else if(e == "TypeError: userJSON is undefined" || e == "SyntaxError: Unexpected end of JSON input"){
+		else if(e == "TypeError: userJSON is undefined" || e == "SyntaxError: Unexpected end of JSON input" || e == "SyntaxError: JSON.parse: unexpected end of data at line 1 column 1 of the JSON data"){
 			fillErrorMessage("Couldn't find that user, are you sure you spelled it right?");
 		}
 		else if(e == "account deleted"){
